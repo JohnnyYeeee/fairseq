@@ -695,8 +695,10 @@ def load_pretrained_component_from_model(
         if key.startswith(component_type):
             # encoder.input_layers.0.0.weight --> input_layers.0.0.weight
             component_subkey = key[len(component_type) + 1 :]
+            if component_subkey=='embed_tokens.weight' or component_subkey=='output_projection.weight':
+                continue
             component_state_dict[component_subkey] = state["model"][key]
-    component.load_state_dict(component_state_dict, strict=True)
+    component.load_state_dict(component_state_dict, strict=False)
     return component
 
 

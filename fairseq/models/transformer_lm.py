@@ -298,7 +298,7 @@ def base_lm_architecture(args):
     if hasattr(args, "no_tie_adaptive_proj"):
         # previous models defined --no-tie-adaptive-proj, so use the existence of
         # that option to determine if this is an "old" model checkpoint
-        args.no_decoder_final_norm = True  # old models always set this to True
+        args.no_base_lm_architecturedecoder_final_norm = True  # old models always set this to True
         if args.no_tie_adaptive_proj is False:
             args.tie_adaptive_proj = True
     if hasattr(args, "decoder_final_norm"):
