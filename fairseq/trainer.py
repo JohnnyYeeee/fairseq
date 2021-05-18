@@ -457,11 +457,11 @@ class Trainer(object):
 
             # load model parameters
             try:
-                # self.model.load_state_dict(
-                #     state["model"], strict=True, model_cfg=self.cfg.model
-                # )
+                self.model.load_state_dict(
+                    state["model"], strict=True, model_cfg=self.cfg.model
+                )
                 # print('makes it to this point')
-                self.model.decoder = checkpoint_utils.load_pretrained_component_from_model(self.model.decoder, filename)
+                # self.model.decoder = checkpoint_utils.load_pretrained_component_from_model(self.model.decoder, filename)
                 # save memory for later steps
                 del state["model"]
                 if utils.has_parameters(self.get_criterion()):
